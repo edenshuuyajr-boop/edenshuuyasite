@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eden Sacharias Shuuya — Economics &amp; Corporate Finance</title>
+<meta name="description" content="Portfolio of Eden Sacharias Shuuya, Economics student and aspiring corporate finance & banking professional in Windhoek, Namibia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF8F2;
+    --paper-alt: #F3EFE4;
+    --ink: #1C2B3A;
+    --ink-soft: #56636F;
+    --rule: #D8CFB8;
+    --rule-strong: #B7AC8E;
+    --accent: #8C6A2F;
+    --accent-deep: #5F461E;
+    --active: #2F5233;
+    --active-bg: #E7EEE3;
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent-deep); text-decoration-color: var(--rule-strong); text-underline-offset: 3px; }
+  a:hover { color: var(--accent); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header / letterhead ---------- */
+
+  header.letterhead {
+    padding: 56px 0 0;
+  }
+
+  .letterhead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .identity { display: flex; gap: 20px; align-items: center; }
+
+  .photo {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--rule-strong);
+    flex-shrink: 0;
+  }
+
+  .name-block h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 4vw, 2.15rem);
+    letter-spacing: 0.01em;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+
+  .name-block .role {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin: 0;
+  }
+
+  .contact-block {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  .contact-block a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+  .contact-block a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
+
+  .print-btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-soft);
+    padding: 6px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .print-btn:hover { border-color: var(--accent-deep); color: var(--accent-deep); }
+
+  .double-rule {
+    margin-top: 28px;
+    border: none;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule-strong);
+    height: 3px;
+    background: none;
+  }
+
+  nav.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 12px 0 40px;
+  }
+  nav.jump a { color: var(--ink-soft); text-decoration: none; padding: 4px 0; }
+  nav.jump a:hover { color: var(--accent-deep); }
+  nav.jump span.sep { margin: 0 10px; color: var(--rule-strong); }
+
+  /* ---------- Sections ---------- */
+
+  section { padding: 8px 0 44px; opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  section.in-view { opacity: 1; transform: translateY(0); }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .section-head h2 {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .section-head .meta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+  }
+
+  .summary-text {
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--ink);
+    max-width: 66ch;
+  }
+
+  /* ---------- Ledger entries ---------- */
+
+  .entry { margin-bottom: 26px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .entry-line .who {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .entry-line .leader {
+    flex: 1;
+    border-bottom: 1px dotted var(--rule-strong);
+    margin-bottom: 5px;
+    min-width: 20px;
+  }
+
+  .entry-line .when {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .status-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--active);
+    background: var(--active-bg);
+    padding: 2px 7px;
+    border-radius: 20px;
+  }
+  .status-dot::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--active);
+  }
+
+  .entry .org {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 3px 0 10px;
+    font-style: italic;
+  }
+
+  .entry ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .entry li {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .entry li::marker { color: var(--rule-strong); }
+
+  /* ---------- Recognition list ---------- */
+
+  .recognition { list-style: none; margin: 0; padding: 0; }
+  .recognition li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .recognition li:last-child { border-bottom: none; }
+  .recognition .tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--accent-deep);
+    background: var(--paper-alt);
+    border: 1px solid var(--rule);
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  /* ---------- Education ---------- */
+
+  .edu-entry { margin-bottom: 18px; }
+  .edu-entry:last-child { margin-bottom: 0; }
+  .edu-entry .degree { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; }
+  .edu-entry .school { color: var(--ink-soft); font-size: 0.92rem; margin: 2px 0; }
+  .edu-entry .when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); }
+
+  /* ---------- Skills ledger ---------- */
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .skills-col h3 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 6px;
+    margin: 0 0 10px;
+    font-weight: 500;
+  }
+  .skills-col ul { list-style: none; margin: 0; padding: 0; }
+  .skills-col li {
+    font-size: 0.9rem;
+    padding: 5px 0;
+    border-bottom: 1px dotted var(--rule);
+    color: var(--ink);
+  }
+  .skills-col li:last-child { border-bottom: none; }
+
+  .languages-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+  .languages-row .lang b { color: var(--ink); font-family: var(--font-body); font-weight: 600; }
+  .languages-row .lang span { color: var(--ink-soft); }
+
+  /* ---------- References ---------- */
+
+  .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+  .ref-card { font-size: 0.9rem; }
+  .ref-card .rname { font-weight: 600; font-family: var(--font-display); font-size: 1rem; }
+  .ref-card .rrole { color: var(--ink-soft); font-size: 0.85rem; margin-top: 2px; }
+  .ref-note {
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    font-style: normal;
+  }
+
+  /* ---------- Posts feed ---------- */
+
+  .posts-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .posts-filter button {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-soft);
+    padding: 6px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .posts-filter button:hover { border-color: var(--accent-deep); color: var(--accent-deep); }
+  .posts-filter button.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .feed { display: flex; flex-direction: column; gap: 22px; }
+
+  .post-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .post-card img {
+    width: 100%;
+    display: block;
+    max-height: 440px;
+    object-fit: cover;
+    background: var(--paper-alt);
+  }
+  .post-body { padding: 16px 18px 18px; }
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    gap: 10px;
+  }
+  .post-tag {
+    padding: 2px 9px;
+    border-radius: 20px;
+    border: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+  .post-tag.event { color: var(--accent-deep); border-color: var(--accent); }
+  .post-tag.project { color: var(--active); border-color: var(--active); }
+  .post-tag.article { color: #2F4D6E; border-color: #2F4D6E; }
+  .post-tag.reflection { color: #6B4A73; border-color: #6B4A73; }
+  .post-title { font-family: var(--font-display); font-weight: 600; font-size: 1.04rem; margin: 0 0 6px; color: var(--ink); }
+  .post-caption { font-size: 0.94rem; line-height: 1.65; color: var(--ink); white-space: pre-wrap; }
+  .post-caption a { color: var(--accent-deep); }
+  .post-empty { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); padding: 20px 0; }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 24px 0 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 620px) {
+    .letterhead-top { flex-direction: column; }
+    .contact-block { text-align: left; }
+    .entry-line { flex-wrap: wrap; }
+    .entry-line .leader { display: none; }
+    .skills-grid { grid-template-columns: 1fr; gap: 22px; }
+    .ref-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    nav.jump, .print-btn { display: none; }
+    section { opacity: 1 !important; transform: none !important; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="letterhead">
+  <div class="wrap">
+    <div class="letterhead-top">
+      <div class="identity">
+        <img class="photo" src="assets/eden-photo.png" alt="Portrait of Eden Sacharias Shuuya">
+        <div class="name-block">
+          <h1>Eden Sacharias Shuuya</h1>
+          <p class="role">Economics student &middot; Aspiring corporate finance &amp; banking professional</p>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div><a href="mailto:edenshuuyajr@gmail.com">edenshuuyajr@gmail.com</a></div>
+        <div>+264 81 283 1771</div>
+        <div>Windhoek, Namibia</div>
+        <button class="print-btn" onclick="window.print()">Print / save as PDF</button>
+      </div>
+    </div>
+    <hr class="double-rule">
+    <nav class="jump">
+      <a href="#summary">Summary</a><span class="sep">&middot;</span>
+      <a href="#posts">Posts</a><span class="sep">&middot;</span>
+      <a href="#experience">Experience</a><span class="sep">&middot;</span>
+      <a href="#leadership">Leadership</a><span class="sep">&middot;</span>
+      <a href="#recognition">Recognition</a><span class="sep">&middot;</span>
+      <a href="#education">Education</a><span class="sep">&middot;</span>
+      <a href="#skills">Skills</a><span class="sep">&middot;</span>
+      <a href="#references">References</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="summary">
+    <div class="section-head">
+      <h2>Professional summary</h2>
+    </div>
+    <p class="summary-text">
+      Final-year Economics student at the Namibia University of Science and Technology (NUST), building a career
+      in corporate finance, credit, and banking. Currently a Finance Intern at Konga Microfinance, working on
+      credit assessment, loan viability analysis, and financial record management. Selected for the Bank of Namibia
+      Youth Central Banking Simulation and placed 4th nationally in the Namibian Scholars Investment Challenge (NSX).
+      Combines hands-on financial experience with leadership across the NUST Economics Society, Girls of Tomorrow
+      Namibia, and the United Youth Civic and Advocacy Forum &mdash; and is actively seeking mentorship to build a
+      disciplined career in banking.
+    </p>
+  </section>
+
+  <section id="posts">
+    <div class="section-head">
+      <h2>Posts</h2>
+      <span class="meta">Events &middot; projects &middot; articles &middot; reflections</span>
+    </div>
+    <div class="posts-filter" role="group" aria-label="Filter posts by type">
+      <button type="button" class="active" data-filter="all">All</button>
+      <button type="button" data-filter="event">Events</button>
+      <button type="button" data-filter="project">Projects</button>
+      <button type="button" data-filter="article">Articles</button>
+      <button type="button" data-filter="reflection">Reflections</button>
+    </div>
+    <div class="feed" id="feed"></div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="meta">Apr 2025 &ndash; present</span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <span class="who">Finance Intern (Accounts Assistant)</span>
+        <span class="leader"></span>
+        <span class="when">Apr 2025 &ndash; present <span class="status-dot">Active</span></span>
+      </div>
+      <p class="org">Konga Microfinance (Pty) Ltd</p>
+      <ul>
+        <li>Conducted credit assessments and financial analysis of loan applicants and overall loan viability.</li>
+        <li>Assisted with transaction processing, payment capturing, and reconciliations, preparing financial records in Excel and the Terbium system.</li>
+        <li>Maintained client portfolios, ensuring accurate record management, data integrity, and compliance.</li>
+        <li>Supported financial operations using Pastel Accounting Software, prepared expenditure ledgers, and collaborated with management during credit reviews.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <span class="who">Clerk (Holiday Placement)</span>
+        <span class="leader"></span>
+        <span class="when">6 months, various periods</span>
+      </div>
+      <p class="org">Oshana Medical Laboratory (OML)</p>
+      <ul>
+        <li>Provided administrative support and filing.</li>
+        <li>Assisted clients and managed basic financial documentation.</li>
+        <li>Demonstrated attention to detail and professionalism in a corporate environment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="section-head">
+      <h2>Leadership &amp; extracurricular activities</h2>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <span class="who">Secretary General</span>
+        <span class="leader"></span>
+        <span class="when">2024 &ndash; 2025</span>
+      </div>
+      <p class="org">NUST Economics Society</p>
+      <ul>
+        <li>Oversaw administrative duties and coordinated society events.</li>
+        <li>Led communication between members and external stakeholders.</li>
+        <li>Played a key role in strategy and organization.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <span class="who">Founding Board Member &amp; Deputy Executive Director</span>
+        <span class="leader"></span>
+        <span class="when">2025 &ndash; present <span class="status-dot">Active</span></span>
+      </div>
+      <p class="org">United Youth Civic and Advocacy Forum (UYCAF)</p>
+      <ul>
+        <li>Co-founded a national youth civic and advocacy organization; supports governance and strategic planning.</li>
+        <li>Co-organized a Policy and Leadership Workshop with the National Council Secretary.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <span class="who">Finance Officer</span>
+        <span class="leader"></span>
+        <span class="when">2025 &ndash; present <span class="status-dot">Active</span></span>
+      </div>
+      <p class="org">Girls of Tomorrow Namibia (NGO)</p>
+      <ul>
+        <li>Manages budgeting, basic financial planning, and accountability.</li>
+        <li>Coordinated charity outreach at Okuryangava Orphanage Home (January 2026).</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <span class="who">Spirit Week Leader</span>
+        <span class="leader"></span>
+        <span class="when">Delta Secondary School</span>
+      </div>
+      <ul>
+        <li>Led the student body during Spirit Week activities.</li>
+        <li>Awarded a certificate for outstanding leadership and initiative.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="recognition">
+    <div class="section-head">
+      <h2>Academic &amp; policy engagement</h2>
+    </div>
+    <ul class="recognition">
+      <li><span class="tag">2025</span> 4th place &mdash; Namibian Scholars Investment Challenge, Namibian Stock Exchange</li>
+      <li><span class="tag">2025</span> Youth Central Banking Simulation &mdash; Bank of Namibia</li>
+      <li><span class="tag">&mdash;</span> Research Team Member (Green Hydrogen) &mdash; Economic &amp; Social Justice Trust Namibia; findings presented in Germany</li>
+      <li><span class="tag">&mdash;</span> Start-Up Entrepreneurship Workshop &mdash; U.S. Embassy Windhoek</li>
+      <li><span class="tag">&mdash;</span> Competition Law Workshop &mdash; facilitated by CCLAS</li>
+      <li><span class="tag">&mdash;</span> Youth Leadership Workshop &mdash; TUCNA</li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <h2>Education</h2>
+    </div>
+    <div class="edu-entry">
+      <div class="degree">Bachelor of Economics (in progress)</div>
+      <div class="school">Namibia University of Science and Technology (NUST)</div>
+      <div class="when">Expected completion: 2027</div>
+    </div>
+    <div class="edu-entry">
+      <div class="degree">NSSCO (2021), NSSCAS (2022)</div>
+      <div class="school">Delta Secondary School, Windhoek</div>
+      <div class="when">Completed: 2022</div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-col">
+        <h3>Technical</h3>
+        <ul>
+          <li>Financial analysis &amp; credit assessment</li>
+          <li>Portfolio management</li>
+          <li>Bookkeeping &amp; record management</li>
+          <li>Payment processing &amp; reconciliation</li>
+          <li>Ledger preparation</li>
+          <li>Pastel Accounting Software</li>
+          <li>Terbium system</li>
+          <li>Microsoft Office suite</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <h3>Professional</h3>
+        <ul>
+          <li>Analytical &amp; critical thinking</li>
+          <li>Problem solving</li>
+          <li>Attention to detail</li>
+          <li>Stakeholder engagement &amp; communication</li>
+          <li>Governance &amp; strategic planning</li>
+          <li>Budgeting &amp; accountability</li>
+          <li>Report writing</li>
+          <li>Teamwork &amp; time management</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-head" style="margin-top:32px;">
+      <h2>Languages</h2>
+    </div>
+    <div class="languages-row">
+      <span class="lang"><b>English</b> <span>&mdash; fluent</span></span>
+      <span class="lang"><b>Oshiwambo</b> <span>&mdash; fluent</span></span>
+      <span class="lang"><b>Afrikaans</b> <span>&mdash; conversational</span></span>
+      <span class="lang"><b>German</b> <span>&mdash; basic</span></span>
+    </div>
+  </section>
+
+  <section id="references">
+    <div class="section-head">
+      <h2>References</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="rname">Mr. Tomas Kalumbu</div>
+        <div class="rrole">Supervisor &amp; Finance Manager, Konga Microfinance (Pty) Ltd</div>
+      </div>
+      <div class="ref-card">
+        <div class="rname">Mrs. P. Mwikanda</div>
+        <div class="rrole">Patron, NUST Economics Society</div>
+      </div>
+      <div class="ref-card">
+        <div class="rname">Mr. Vincentious Vries</div>
+        <div class="rrole">Executive Director, United Youth Civic and Advocacy Forum (UYCAF)</div>
+      </div>
+    </div>
+    <p class="ref-note">Full contact details available on request.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>Eden Sacharias Shuuya &middot; Windhoek, Namibia</span>
+    <span>Valid Namibian driver's license</span>
+  </div>
+</footer>
+
+<script>
+  /*
+    HOW TO ADD A NEW POST
+    ----------------------
+    1. If your post has a photo, drop the image file into the assets/posts/ folder.
+    2. Copy one of the objects below and add it to the TOP of the posts array
+       (newest first).
+    3. Fields:
+         type    - "event", "project", "article", or "reflection"
+         date    - shown as-is, e.g. "Jun 2026"
+         image   - path to the photo, e.g. "assets/posts/nsx-award.jpg"
+                   (leave this out entirely for text-only posts like reflections
+                   or articles with no photo)
+         title   - optional short heading, mainly useful for articles
+         caption - the write-up / reflection text. Plain text, line breaks are kept.
+         link    - optional URL, e.g. to the full article you're referencing
+         linkLabel - optional text for the link, e.g. "Read the full article"
+    4. Save the file and refresh the page - no other code needs to change.
+  */
+  var posts = [
+    {
+      type: "event",
+      date: "Jan 2026",
+      image: "assets/posts/example-event.jpg",
+      caption: "Example post - swap this out. Coordinating outreach at the Okuryangava Orphanage Home with Girls of Tomorrow Namibia."
+    },
+    {
+      type: "reflection",
+      date: "Dec 2025",
+      caption: "Example reflection - swap this out. A few thoughts on what the Bank of Namibia Youth Central Banking Simulation taught me about monetary policy trade-offs in a small open economy."
+    },
+    {
+      type: "article",
+      date: "Nov 2025",
+      title: "Example article share - swap this out",
+      caption: "Worth a read on credit risk in microfinance lending.",
+      link: "https://example.com",
+      linkLabel: "Read the full article"
+    }
+  ];
+
+  function renderFeed(filter) {
+    var feed = document.getElementById('feed');
+    var items = filter === 'all' ? posts : posts.filter(function (p) { return p.type === filter; });
+    if (!items.length) {
+      feed.innerHTML = '<p class="post-empty">No posts in this category yet.</p>';
+      return;
+    }
+    feed.innerHTML = items.map(function (p) {
+      var img = p.image ? '<img src="' + p.image + '" alt="' + (p.title || p.type + ' post photo') + '">' : '';
+      var title = p.title ? '<p class="post-title">' + p.title + '</p>' : '';
+      var link = p.link ? '<p class="post-caption"><a href="' + p.link + '" target="_blank" rel="noopener">' + (p.linkLabel || 'Read more') + ' &rarr;</a></p>' : '';
+      return '<article class="post-card">' + img +
+        '<div class="post-body"><div class="post-meta"><span class="post-tag ' + p.type + '">' + p.type + '</span><span>' + p.date + '</span></div>' +
+        title + '<p class="post-caption">' + p.caption + '</p>' + link + '</div></article>';
+    }).join('');
+  }
+
+  renderFeed('all');
+  document.querySelectorAll('.posts-filter button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.posts-filter button').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderFeed(btn.getAttribute('data-filter'));
+    });
+  });
+
+  var sections = document.querySelectorAll('section');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    sections.forEach(function(s) { io.observe(s); });
+  } else {
+    sections.forEach(function(s) { s.classList.add('in-view'); });
+  }
+</script>
+
+</body>
+</html>
