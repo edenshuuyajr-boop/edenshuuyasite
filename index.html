@@ -48,7 +48,8 @@
 
   header { padding: 72px 0 40px; }
 
-  .photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--rule); margin-bottom: 28px; }
+  .photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--rule); margin-bottom: 8px; }
+  .photo-caption { font-size: 0.78rem; color: var(--text-soft); margin: 0 0 24px; }
 
   h1 {
     font-family: var(--font-display);
@@ -214,13 +215,12 @@
 <body>
 
 <header class="wrap">
-  <img class="photo" src="eden-photo.png" alt="Portrait of Eden Sacharias Shuuya">
+  <img class="photo" src="eden-photo.png" alt="Portrait of Eden">
+  <p class="photo-caption">Portrait of Eden</p>
   <h1>Eden Sacharias Shuuya</h1>
   <p class="role-line">Student, credit analyst, youth leader, aspiring CFA.</p>
   <div class="contact-row">
     <a href="mailto:edenshuuyajr@gmail.com">edenshuuyajr@gmail.com</a>
-    <span class="dot">·</span>
-    <span>+264 81 283 1771</span>
     <span class="dot">·</span>
     <span>Windhoek, Namibia</span>
     <button class="print-btn" onclick="window.print()">Print / save as PDF</button>
