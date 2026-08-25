@@ -451,7 +451,7 @@
   <div class="wrap">
     <div class="letterhead-top">
       <div class="identity">
-        <img class="photo" src="assets/eden-photo.png" alt="Portrait of Eden Sacharias Shuuya">
+        <img class="photo" src="eden-photo.png" alt="Portrait of Eden Sacharias Shuuya">
         <div class="name-block">
           <h1>Eden Sacharias Shuuya</h1>
           <p class="role">Economics student &middot; Aspiring corporate finance &amp; banking professional</p>
@@ -711,13 +711,14 @@
   /*
     HOW TO ADD A NEW POST
     ----------------------
-    1. If your post has a photo, drop the image file into the assets/posts/ folder.
+    1. If your post has a photo, upload the image file into the same GitHub
+       folder as index.html (the repo root) - no subfolders needed.
     2. Copy one of the objects below and add it to the TOP of the posts array
        (newest first).
     3. Fields:
          type    - "event", "project", "article", or "reflection"
          date    - shown as-is, e.g. "Jun 2026"
-         image   - path to the photo, e.g. "assets/posts/nsx-award.jpg"
+         image   - just the filename, e.g. "nsx-award.jpg"
                    (leave this out entirely for text-only posts like reflections
                    or articles with no photo)
          title   - optional short heading, mainly useful for articles
@@ -730,7 +731,7 @@
     {
       type: "event",
       date: "Jan 2026",
-      image: "assets/posts/example-event.jpg",
+      image: "example-event.jpg",
       caption: "Example post - swap this out. Coordinating outreach at the Okuryangava Orphanage Home with Girls of Tomorrow Namibia."
     },
     {
