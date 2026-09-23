@@ -7,17 +7,20 @@
 <meta name="description" content="Portfolio of Eden Sacharias Shuuya, Economics student and aspiring corporate finance & banking professional in Windhoek, Namibia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #171B1F;
-    --text: #EDEBE6;
-    --text-soft: #9AA0A6;
-    --rule: #2A2F35;
-    --accent: #6FBF97;
-    --accent-bright: #8ED9AF;
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'Inter', -apple-system, sans-serif;
+    --bg: #12161D;
+    --surface: #1A212B;
+    --text: #E8E3D6;
+    --text-soft: #8B93A3;
+    --rule: #262E3A;
+    --accent: #B98B3E;
+    --accent-bright: #D9B36B;
+    --stamp: #8B3A3A;
+    --stamp-bright: #C97575;
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-body: 'Public Sans', -apple-system, sans-serif;
   }
 
   * { box-sizing: border-box; }
@@ -46,10 +49,9 @@
 
   /* ---------- Header ---------- */
 
-  header { padding: 72px 0 40px; }
+  header { padding: 72px 0 34px; }
 
-  .photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--rule); margin-bottom: 8px; }
-  .photo-caption { font-size: 0.78rem; color: var(--text-soft); margin: 0 0 24px; }
+  .photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--rule); margin-bottom: 20px; }
 
   h1 {
     font-family: var(--font-display);
@@ -61,57 +63,58 @@
     color: var(--text);
   }
 
-  .role-line { font-size: 1.02rem; color: var(--text-soft); margin: 0 0 26px; max-width: 52ch; }
+  .role-line { font-size: 1.02rem; color: var(--text-soft); margin: 0 0 30px; max-width: 52ch; }
 
   .contact-row {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
-    font-size: 0.9rem; color: var(--text-soft); padding-bottom: 30px; border-bottom: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap;
+    gap: 16px 28px; padding-bottom: 30px; border-bottom: 1px solid var(--rule);
   }
-  .contact-row .dot { color: var(--rule); }
+
+  .contact-fields { display: flex; flex-wrap: wrap; gap: 20px 32px; }
+  .field { display: flex; flex-direction: column; gap: 3px; }
+  .field-label { font-size: 0.75rem; color: var(--text-soft); }
+  .field a, .field span.value { font-size: 0.94rem; color: var(--text); }
+  .field a { color: var(--accent); }
 
   .print-btn {
-    font-size: 0.78rem; background: transparent; border: 1px solid var(--rule);
-    color: var(--text-soft); padding: 5px 12px; border-radius: 20px; cursor: pointer; margin-left: auto;
+    font-family: var(--font-body); font-size: 0.82rem; background: transparent; border: 1px solid var(--rule);
+    color: var(--text-soft); padding: 7px 14px; border-radius: 3px; cursor: pointer;
   }
-  .print-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .print-btn:hover { border-color: var(--accent); color: var(--accent-bright); }
 
   nav.jump { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.84rem; color: var(--text-soft); padding: 20px 0 0; }
   nav.jump a { color: var(--text-soft); text-decoration: none; }
-  nav.jump a:hover { color: var(--accent); }
+  nav.jump a:hover { color: var(--accent-bright); }
 
-  /* ---------- Plain sections (Summary, Posts) ---------- */
+  /* ---------- Plain sections (Summary, Posts, What's next) ---------- */
 
-  section.plain { padding: 46px 0; border-bottom: 1px solid var(--rule); opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  section.plain.in-view { opacity: 1; transform: translateY(0); }
+  section.plain { padding: 46px 0; border-bottom: 1px solid var(--rule); }
 
   .section-label {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.32rem;
+    color: var(--text);
+    margin: 0 0 22px;
   }
-  section.plain .section-label { margin-bottom: 24px; }
+  section.plain.featured .section-label { font-size: 1.5rem; }
 
   section.plain.featured {
-    background: rgba(111,191,151,0.06);
-    border: 1px solid rgba(111,191,151,0.25);
-    border-radius: 14px;
-    padding: 36px 32px;
-    margin-bottom: 46px;
-    border-bottom: none;
+    border-top: 3px solid var(--accent);
+    padding-top: 42px;
   }
-  .label-lg { font-size: 0.85rem; letter-spacing: 0.16em; }
-  .feature-sub { color: var(--text-soft); font-size: 0.95rem; margin: -14px 0 26px; max-width: 50ch; }
+  .feature-sub { color: var(--text-soft); font-size: 0.95rem; margin: -12px 0 26px; max-width: 50ch; }
 
   .entry-text { font-size: 0.97rem; line-height: 1.75; color: var(--text); max-width: 62ch; }
 
   .summary-text {
-    font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; line-height: 1.6;
+    font-family: var(--font-display); font-size: 1.18rem; font-weight: 500; line-height: 1.6;
     color: var(--text); max-width: 60ch;
   }
 
   /* ---------- Collapsible sections ---------- */
 
-  details.section-details { border-bottom: 1px solid var(--rule); opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  details.section-details.in-view { opacity: 1; transform: translateY(0); }
+  details.section-details { border-bottom: 1px solid var(--rule); }
 
   details.section-details summary {
     list-style: none; cursor: pointer; padding: 30px 0;
@@ -122,7 +125,7 @@
 
   .summary-right { display: flex; align-items: center; gap: 12px; }
 
-  .chevron { color: var(--text-soft); transition: transform 0.25s ease; flex-shrink: 0; }
+  .chevron { color: var(--text-soft); transition: transform 0.2s ease; flex-shrink: 0; }
   details.section-details[open] .chevron { transform: rotate(180deg); }
 
   .details-body { padding: 0 0 40px; }
@@ -135,12 +138,12 @@
     border-bottom: 2px solid transparent; color: var(--text-soft); padding: 4px 0; cursor: pointer;
   }
   .posts-filter button:hover { color: var(--text); }
-  .posts-filter button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+  .posts-filter button.active { color: var(--accent-bright); border-bottom-color: var(--accent); font-weight: 600; }
 
   .feed { display: flex; flex-direction: column; gap: 34px; }
-  .post-card img { width: 100%; border-radius: 6px; display: block; max-height: 420px; object-fit: cover; margin-bottom: 14px; background: var(--rule); }
+  .post-card img { width: 100%; border-radius: 4px; display: block; max-height: 420px; object-fit: cover; margin-bottom: 14px; background: var(--rule); }
   .post-meta { display: flex; gap: 12px; align-items: center; font-size: 0.78rem; color: var(--text-soft); margin-bottom: 8px; }
-  .post-meta .post-tag { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; font-size: 0.72rem; color: var(--accent); }
+  .post-meta .post-tag { font-weight: 600; font-size: 0.78rem; color: var(--accent); }
   .post-title { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 0 0 6px; color: var(--text); }
   .post-caption { font-size: 0.98rem; line-height: 1.7; color: var(--text); white-space: pre-wrap; }
   .post-caption a { font-weight: 500; }
@@ -153,7 +156,10 @@
   .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
   .entry-head .role { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; color: var(--text); }
   .entry-head .when { font-size: 0.85rem; color: var(--text-soft); white-space: nowrap; }
-  .entry-head .when .present { color: var(--accent); font-weight: 600; }
+  .entry-head .when .present {
+    color: var(--stamp-bright); background: rgba(139,58,58,0.16); border: 1px solid rgba(139,58,58,0.45);
+    padding: 1px 7px; border-radius: 3px; font-weight: 600; font-size: 0.78rem; margin-left: 2px;
+  }
   .entry .org { font-size: 0.94rem; color: var(--text-soft); margin: 3px 0 12px; }
   .entry ul { margin: 0; padding-left: 20px; }
   .entry li { margin-bottom: 7px; font-size: 0.97rem; color: var(--text); }
@@ -177,7 +183,7 @@
   /* ---------- Skills ---------- */
 
   .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
-  .skills-col h3 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin: 0 0 12px; }
+  .skills-col h3 { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); margin: 0 0 12px; }
   .skills-col ul { list-style: none; margin: 0; padding: 0; }
   .skills-col li { font-size: 0.94rem; padding: 6px 0; border-bottom: 1px solid var(--rule); color: var(--text); }
   .skills-col li:last-child { border-bottom: none; }
@@ -202,11 +208,11 @@
     .entry-head { flex-direction: column; gap: 2px; }
     .skills-grid { grid-template-columns: 1fr; gap: 24px; }
     .ref-grid { grid-template-columns: 1fr; }
+    .contact-row { align-items: flex-start; }
   }
 
   @media print {
     nav.jump, .print-btn, .chevron { display: none; }
-    section.plain, details.section-details { opacity: 1 !important; transform: none !important; }
     details.section-details { display: block !important; }
     .details-body { display: block !important; }
   }
@@ -215,15 +221,21 @@
 <body>
 
 <header class="wrap">
-  <img class="photo" src="eden-photo.png" alt="Portrait of Eden">
-  <p class="photo-caption">Portrait of Eden</p>
+  <img class="photo" src="eden-photo.png" alt="Portrait of Eden Sacharias Shuuya">
   <h1>Eden Sacharias Shuuya</h1>
   <p class="role-line">Student, credit analyst, youth leader, aspiring CFA.</p>
   <div class="contact-row">
-    <a href="mailto:edenshuuyajr@gmail.com">edenshuuyajr@gmail.com</a>
-    <span class="dot">·</span>
-    <span>Windhoek, Namibia</span>
-    <button class="print-btn" onclick="window.print()">Print / save as PDF</button>
+    <div class="contact-fields">
+      <div class="field">
+        <span class="field-label">Email</span>
+        <a href="mailto:edenshuuyajr@gmail.com">edenshuuyajr@gmail.com</a>
+      </div>
+      <div class="field">
+        <span class="field-label">Based in</span>
+        <span class="value">Windhoek, Namibia</span>
+      </div>
+    </div>
+    <button class="print-btn" onclick="window.print()">Save as PDF</button>
   </div>
   <nav class="jump">
     <a href="#summary">Summary</a>
@@ -241,7 +253,7 @@
 <main class="wrap">
 
   <section class="plain featured" id="posts">
-    <p class="section-label label-lg">Posts</p>
+    <p class="section-label">Posts</p>
     <p class="feature-sub">A running feed of events, projects, articles, and reflections — updated as things happen.</p>
     <div class="posts-filter" role="group" aria-label="Filter posts by type">
       <button type="button" class="active" data-filter="all">All</button>
@@ -257,11 +269,11 @@
     <p class="section-label">Summary</p>
     <p class="summary-text">
       Eden splits his time between two kinds of learning: the theory in his economics lectures at NUST, and the
-      practice of it inside a loan file at Konga Microfinance, where he assesses credit risk and weighs what makes
-      a business worth funding. That instinct for numbers with real consequences shows up elsewhere too — a
-      4th-place finish in the Namibian Scholars Investment Challenge, a seat in the Bank of Namibia's Youth Central
-      Banking Simulation, and a running list of leadership roles across student and civic organizations around
-      Windhoek. He's now looking for a mentor to help turn that instinct into a career in corporate finance and banking.
+      practice of it inside a loan file at Konga Microfinance, where he assesses credit risk and decides what makes
+      a business worth funding. He placed 4th nationally in the Namibian Scholars Investment Challenge, was
+      selected for the Bank of Namibia's Youth Central Banking Simulation, and holds several leadership roles
+      across student and civic organizations in Windhoek. He's now looking for a mentor to help turn that
+      experience into a career in corporate finance and banking.
     </p>
   </section>
 
@@ -277,16 +289,15 @@
       <div class="entry">
         <div class="entry-head">
           <span class="role">Finance Intern (Accounts Assistant)</span>
-          <span class="when"><span class="present">Apr 2025 – present</span></span>
+          <span class="when">Apr 2025 – <span class="present">Present</span></span>
         </div>
         <p class="org">Konga Microfinance (Pty) Ltd</p>
         <p class="entry-text">
-          Most days start with a stack of loan applications. Eden works through them one by one — assessing credit
-          risk, checking loan viability, and deciding whether the numbers behind a business actually add up.
-          Between reviews, he processes payments, reconciles accounts across Excel and the Terbium system, and
-          keeps client portfolios clean enough to hold up under scrutiny. It's also where he picked up Pastel
-          Accounting Software and learned what a real credit review looks like from the inside, working alongside
-          management rather than just reading about it.
+          Eden reviews loan applications day to day — assessing credit risk, checking loan viability, and deciding
+          whether the numbers behind a business add up. He also processes payments, reconciles accounts across
+          Excel and the Terbium system, and keeps client portfolios accurate under audit. Along the way he's picked
+          up Pastel Accounting Software and learned what a credit review looks like from inside a lending team, not
+          just from a textbook.
         </p>
       </div>
 
@@ -297,9 +308,9 @@
         </div>
         <p class="org">Oshana Medical Laboratory (OML)</p>
         <p class="entry-text">
-          Before Konga, a holiday placement at Oshana Medical Laboratory gave Eden his first taste of a real
-          office — filing, supporting clients, and handling basic financial documentation. Small tasks, but the
-          kind that built the attention to detail he still relies on.
+          A holiday placement at Oshana Medical Laboratory, before Konga, was Eden's first office job — filing,
+          supporting clients, and handling basic financial documentation. Routine work, but it's where his
+          attention to detail started.
         </p>
       </div>
 
@@ -322,35 +333,34 @@
         </div>
         <p class="org">NUST Economics Society</p>
         <p class="entry-text">
-          As Secretary General, Eden kept the society running behind the scenes — administration, event
-          coordination, and the steady stream of communication between members and outside partners that most
-          people never see but every organization depends on.
+          As Secretary General, Eden handled the society's administration, event coordination, and communication
+          between members and outside partners.
         </p>
       </div>
 
       <div class="entry">
         <div class="entry-head">
           <span class="role">Founding Board Member &amp; Deputy Executive Director</span>
-          <span class="when"><span class="present">2025 – present</span></span>
+          <span class="when">2025 – <span class="present">Present</span></span>
         </div>
         <p class="org">United Youth Civic and Advocacy Forum (UYCAF)</p>
         <p class="entry-text">
-          Eden is one of the founding board members of UYCAF, a national youth civic and advocacy organization
-          still finding its shape. He's helped set its governance and strategy from the ground up, including
-          co-organizing a Policy and Leadership Workshop alongside the National Council Secretary.
+          Eden is a founding board member of UYCAF, a national youth civic and advocacy organization. He's helped
+          set its governance and strategy from the ground up, and co-organized a Policy and Leadership Workshop
+          with the National Council Secretary.
         </p>
       </div>
 
       <div class="entry">
         <div class="entry-head">
           <span class="role">Finance Officer</span>
-          <span class="when"><span class="present">2025 – present</span></span>
+          <span class="when">2025 – <span class="present">Present</span></span>
         </div>
         <p class="org">Girls of Tomorrow Namibia (NGO)</p>
         <p class="entry-text">
-          His finance instincts extend to Girls of Tomorrow Namibia too, where he manages budgeting and keeps the
-          NGO accountable for the resources it raises. In January 2026, that included coordinating a charity
-          outreach visit to the Okuryangava Orphanage Home.
+          At Girls of Tomorrow Namibia, Eden manages budgeting and keeps the NGO accountable for the resources it
+          raises. In January 2026, that included coordinating a charity outreach visit to the Okuryangava
+          Orphanage Home.
         </p>
       </div>
 
@@ -360,8 +370,8 @@
           <span class="when">Delta Secondary School</span>
         </div>
         <p class="entry-text">
-          Long before any of this, Eden led his year group through Spirit Week at Delta Secondary — his first real
-          leadership role, and one that earned him a certificate for it.
+          Eden led his year group through Spirit Week at Delta Secondary — his first leadership role, and the one
+          that earned him his first certificate.
         </p>
       </div>
 
@@ -481,10 +491,9 @@
   <section class="plain" id="next">
     <p class="section-label">What's next</p>
     <p class="summary-text">
-      The next stretch is about turning hands-on credit and finance experience into a real foothold in corporate
-      banking — sharpening financial modelling and credit analysis, and finding a mentor who's already walked this
-      path. Longer term, Eden's aiming for a career at the intersection of corporate finance and Namibia's
-      financial sector.
+      Next, Eden wants to turn hands-on credit and finance experience into a role in corporate banking —
+      sharpening his financial modelling and credit analysis, and finding a mentor in the field. Longer term, he's
+      aiming for a career in corporate finance within Namibia's financial sector.
     </p>
   </section>
 
@@ -496,44 +505,48 @@
 </footer>
 
 <script>
-  /*
-    HOW TO ADD A NEW POST
-    ----------------------
-    1. If your post has a photo, upload the image file into the same GitHub
-       folder as index.html (the repo root) - no subfolders needed.
-    2. Copy one of the objects below and add it to the TOP of the posts array
-       (newest first).
-    3. Fields:
-         type    - "event", "project", "article", or "reflection"
-         date    - shown as-is, e.g. "Jun 2026"
-         image   - just the filename, e.g. "nsx-award.jpg"
-                   (leave this out entirely for text-only posts like reflections
-                   or articles with no photo)
-         title   - optional short heading, mainly useful for articles
-         caption - the write-up / reflection text. Plain text, line breaks are kept.
-         link    - optional URL, e.g. to the full article you're referencing
-         linkLabel - optional text for the link, e.g. "Read the full article"
-    4. Save the file and refresh the page - no other code needs to change.
-  */
   var posts = [
     {
       type: "event",
-      date: "Jan 2026",
-      image: "example-event.jpg",
-      caption: "Example post - swap this out. Coordinating outreach at the Okuryangava Orphanage Home with Girls of Tomorrow Namibia."
+      date: "Mar 2026",
+      image: "vision-board-2026.jpg",
+      caption: "A vision board Eden put together for himself in March 2026, mapping out where he wants his economics and finance career to go."
     },
     {
-      type: "reflection",
-      date: "Dec 2025",
-      caption: "Example reflection - swap this out. A few thoughts on what the Bank of Namibia Youth Central Banking Simulation taught me about monetary policy trade-offs in a small open economy."
+      type: "event",
+      date: "2026",
+      image: "uycaf-good-morning-namibia.jpg",
+      caption: "Speaking on Good Morning Namibia about youth advocacy in Namibia, in his capacity as UYCAF's Deputy Executive Director."
     },
     {
-      type: "article",
-      date: "Nov 2025",
-      title: "Example article share - swap this out",
-      caption: "Worth a read on credit risk in microfinance lending.",
-      link: "https://example.com",
-      linkLabel: "Read the full article"
+      type: "event",
+      date: "2025",
+      image: "uycaf-minds-in-action.jpg",
+      caption: "The UYCAF team visiting Minds in Action Namibia's headquarters."
+    },
+    {
+      type: "event",
+      date: "2025",
+      image: "oil-gas-conference-delegate.jpg",
+      caption: "Attending the Youth in Oil and Gas conference as a delegate."
+    },
+    {
+      type: "event",
+      date: "2025",
+      image: "youth-leadership-workshop.jpg",
+      caption: "A youth teamwork and leadership workshop Eden took part in."
+    },
+    {
+      type: "event",
+      date: "2025",
+      image: "cclas-competition-law-workshop.jpg",
+      caption: "The Competition Law Workshop facilitated by CCLAS and NaCC, attended in his capacity as NUST Economics Society Secretary General."
+    },
+    {
+      type: "event",
+      date: "Apr 2025",
+      image: "konga-first-day.jpg",
+      caption: "Eden's first day as an intern at Konga Microfinance (Pty) Ltd."
     }
   ];
 
@@ -563,7 +576,6 @@
     });
   });
 
-  // Open the right accordion section when a nav link (or direct #hash link) is used
   function openTargetFromHash() {
     var hash = window.location.hash;
     if (!hash) return;
@@ -578,21 +590,6 @@
   });
   window.addEventListener('hashchange', openTargetFromHash);
   openTargetFromHash();
-
-  var animatedSections = document.querySelectorAll('section.plain, details.section-details');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    animatedSections.forEach(function(s) { io.observe(s); });
-  } else {
-    animatedSections.forEach(function(s) { s.classList.add('in-view'); });
-  }
 </script>
 
 </body>
